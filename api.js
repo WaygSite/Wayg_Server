@@ -48,7 +48,7 @@ app.get("/data", async (req, res) => {
     let serviceKey =
       "38E/Z4yURCT3H1kNL0fgSZRQRrbZEyoeujrEmRvGZgEe8V2c9OrDf+sgfjqT6JrLzQOSpvGfbm0D/diK1Z0sqA==";
     let response = await axios.get(
-      "https://api.odcloud.kr/api/15050724/v1/uddi:1c79c18a-ef4e-40a7-8b42-df1f94f15513_201711161619?page=1&perPage=10000&returnType=XML",
+      "https://api.odcloud.kr/api/15050724/v1/uddi:1c79c18a-ef4e-40a7-8b42-df1f94f15513_201711161619?page=1&perPage=1",
       {
         params: {
           serviceKey: serviceKey,
@@ -57,6 +57,7 @@ app.get("/data", async (req, res) => {
     );
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.json(response.data);
+    console.log(response.data);
   } catch (e) {
     console.log(e);
   }
