@@ -48,7 +48,7 @@ app.get("/data", async (req, res) => {
     let serviceKey =
       "38E/Z4yURCT3H1kNL0fgSZRQRrbZEyoeujrEmRvGZgEe8V2c9OrDf+sgfjqT6JrLzQOSpvGfbm0D/diK1Z0sqA==";
     let response = await axios.get(
-      "https://api.odcloud.kr/api/15050724/v1/uddi:1c79c18a-ef4e-40a7-8b42-df1f94f15513_201711161619?page=1&perPage=1",
+      "https://api.odcloud.kr/api/15050724/v1/uddi:1c79c18a-ef4e-40a7-8b42-df1f94f15513_201711161619?page=1&perPage=150",
       {
         params: {
           serviceKey: serviceKey,
@@ -57,7 +57,10 @@ app.get("/data", async (req, res) => {
     );
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.json(response.data);
-    console.log(response.data);
+    response.data.data.forEach(function (school) {
+      //forEach를 사용하여 api데이터 안에 있는 json파일 중 "학교"라는 파라미터들을 전부 뽑아낸다
+      console.log(school["학교"]);
+    });
   } catch (e) {
     console.log(e);
   }
