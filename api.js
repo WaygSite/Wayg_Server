@@ -58,8 +58,22 @@ app.get("/data", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.json(response.data);
     response.data.data.forEach(function (school) {
+      const Institution = school["설립구분"];
+      const MaW = school["남녀공학구분"];
+      const Type = school["고교유형"];
+      const SchoolName = school["학교"];
+      const Addr = school["학교도로명주소"];
+      const Number = school["학교전화번호"];
+      const Date = school["설립일자"];
       //forEach를 사용하여 api데이터 안에 있는 json파일 중 "학교"라는 파라미터들을 전부 뽑아낸다
-      console.log(school["학교"]);
+      console.log("설립구분 : " + Institution);
+      console.log("남녀공학구분 : " + MaW);
+      console.log("고교유형 : " + Type);
+      console.log("학교 : " + SchoolName);
+      console.log("학교주소 : " + Addr);
+      console.log("학교번호 : " + Number);
+      console.log("설립일자 : " + Date);
+      console.log("-----------------------");
     });
   } catch (e) {
     console.log(e);
