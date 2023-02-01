@@ -39,12 +39,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
-const port = 3000;
+const port = 3001;
 require("dotenv").config({ path: "./.env" });
 
 app.use(cors());
 
-app.get("/data", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     let serviceKey = `${process.env.OPEN_API_SERVICE_KEY}`;
     let response = await axios.get(`${process.env.OPEN_API_KEY}`, {
