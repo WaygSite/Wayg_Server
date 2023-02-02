@@ -53,11 +53,8 @@ app.get("/", async (req, res) => {
       ];
 
       connection.query(query, values, function (error, results) {
-        if (error) {
-          console.error(error);
-        }
-        console.log(results);
-        connection.end();
+        if (error) throw error;
+        console.log("1 record inserted");
       });
     });
   } catch (e) {
